@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listeners</title>
+    <style>
+        #btn{
+            padding:20px;
+            border: 1px solid black;
+            border-radius: 20px;
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Click Me!!</button>
+</body>
+<script>
+    let button=document.getElementById("btn");
+    button.addEventListener("click",function(){
+        button.innerText="button Clicked !!";
+        button.style.backgroundColor="yellow";
+        button.style.color="red";
+    })
+</script>
+</html>
