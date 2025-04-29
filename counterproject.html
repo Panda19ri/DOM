@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+        background-color: aliceblue;
+      }
+      #main{
+           display: flex;
+           flex-direction: column;
+           text-align: center;
+           background-color:yellowgreen;
+           border: none;
+           border-radius: 20px;
+           margin: 50px;
+      }
+      #counter{
+        margin-top: 0px;
+
+      }
+      #buttons{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+      }
+      button{
+        border-radius: 30px;
+        border: none;
+        padding: 15px;
+        background-color: brown;
+        color: white;
+        font-size: 20px;
+      }
+      button:hover{
+        background-color: blue;
+      }
+/* Tablets  media quries */
+@media (max-width: 768px) {
+  #main {
+    margin: 30px 20px;
+    padding: 20px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 12px 20px;
+    margin-top: 30px;
+  }
+
+  #custom-input {
+    width: 80%;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  #main {
+    padding: 15px;
+  }
+
+  #counter {
+    font-size: 2.5em;
+  }
+
+  #buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 80%;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  #custom-input {
+    width: 90%;
+    font-size: 14px;
+  }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div id="main">
+            <h1>Counter Value</h1>
+            <h1 id="counter">0</h1>
+            <input type="number" id="custom-input" placeholder="Enter Custom Input">
+            <div id="buttons">
+                <button onclick="Counter('increment')">Increment</button>
+                <button onclick="Counter('decrement')">Decrement</button>
+                <button onclick="Counter('reset')">Reset</button>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    let counter=0;
+    function Counter(action){
+        const input=document.getElementById("custom-input");
+        const increment=parseInt(input.value) || 1; 
+        if(action === "increment"){
+            counter += increment;
+        }
+        else if(action === "decrement"){
+            counter=counter-increment;
+        }
+        else if(action == "reset"){
+          counter=0;
+        }
+         displayCount();
+    }
+      function displayCount(){
+             const counterDisplay=document.getElementById("counter");
+             const main=document.getElementById("main");
+             counterDisplay.textContent=counter;
+             if(counter%3==0){
+                main.style.backgroundColor="grey";
+             }
+             else if(counter%5==0)
+             {
+                main.style.backgroundColor="aqua";
+             }
+             else{
+                main.style.backgroundColor="";
+             }
+      }
+
+</script>
+</html>
